@@ -3,7 +3,9 @@
 namespace Database\Factories;
 
 use App\Models\Image;
+use Facade\FlareClient\Stacktrace\File;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\Storage;
 
 class ImageFactory extends Factory
 {
@@ -22,8 +24,10 @@ class ImageFactory extends Factory
     public function definition()
     {
         return [
-            'url' => 'posts/'. $this->faker->image('storage/app/posts', 640, 480, null, false)
+
+        'url' => 'posts/'. $this->faker->image(public_path('storage/posts'), 640, 480, null, false)
 
         ];
+       
     }
 }
